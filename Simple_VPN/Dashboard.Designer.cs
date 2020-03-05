@@ -1,0 +1,277 @@
+﻿namespace Simple_VPN
+{
+    partial class Dashboard
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            this.ExitBtn = new System.Windows.Forms.Button();
+            this.MiniBtn = new System.Windows.Forms.Button();
+            this.SeprLbl = new System.Windows.Forms.Label();
+            this.NameLbl = new System.Windows.Forms.Label();
+            this.CountriesCmBox = new System.Windows.Forms.ComboBox();
+            this.CountriesFlgPicBox = new System.Windows.Forms.PictureBox();
+            this.ConnectBtn = new System.Windows.Forms.Button();
+            this.DisconnectBtn = new System.Windows.Forms.Button();
+            this.statusPicbox = new System.Windows.Forms.PictureBox();
+            this.usermode_Lbl = new System.Windows.Forms.Label();
+            this.NotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.openApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.InfoBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.CountriesFlgPicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusPicbox)).BeginInit();
+            this.CMenu.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // ExitBtn
+            // 
+            this.ExitBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.ExitBtn.Location = new System.Drawing.Point(304, 3);
+            this.ExitBtn.Name = "ExitBtn";
+            this.ExitBtn.Size = new System.Drawing.Size(25, 26);
+            this.ExitBtn.TabIndex = 0;
+            this.ExitBtn.Text = "X";
+            this.ExitBtn.UseVisualStyleBackColor = true;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
+            // 
+            // MiniBtn
+            // 
+            this.MiniBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MiniBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MiniBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MiniBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.MiniBtn.Location = new System.Drawing.Point(276, 3);
+            this.MiniBtn.Name = "MiniBtn";
+            this.MiniBtn.Size = new System.Drawing.Size(25, 26);
+            this.MiniBtn.TabIndex = 1;
+            this.MiniBtn.Text = "_";
+            this.MiniBtn.UseVisualStyleBackColor = true;
+            this.MiniBtn.Click += new System.EventHandler(this.MiniBtn_Click);
+            // 
+            // SeprLbl
+            // 
+            this.SeprLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.SeprLbl.Location = new System.Drawing.Point(3, 35);
+            this.SeprLbl.Name = "SeprLbl";
+            this.SeprLbl.Size = new System.Drawing.Size(326, 1);
+            this.SeprLbl.TabIndex = 2;
+            // 
+            // NameLbl
+            // 
+            this.NameLbl.AutoSize = true;
+            this.NameLbl.Font = new System.Drawing.Font("Orbitron", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.NameLbl.Location = new System.Drawing.Point(1, 8);
+            this.NameLbl.Name = "NameLbl";
+            this.NameLbl.Size = new System.Drawing.Size(142, 18);
+            this.NameLbl.TabIndex = 3;
+            this.NameLbl.Text = "Simple VPN 1.1.0";
+            // 
+            // CountriesCmBox
+            // 
+            this.CountriesCmBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(33)))));
+            this.CountriesCmBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CountriesCmBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CountriesCmBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CountriesCmBox.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountriesCmBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.CountriesCmBox.FormattingEnabled = true;
+            this.CountriesCmBox.Items.AddRange(new object[] {
+            "Select",
+            "Netherlands",
+            "Germany",
+            "Argentina",
+            "United States"});
+            this.CountriesCmBox.Location = new System.Drawing.Point(12, 239);
+            this.CountriesCmBox.Name = "CountriesCmBox";
+            this.CountriesCmBox.Size = new System.Drawing.Size(269, 31);
+            this.CountriesCmBox.TabIndex = 4;
+            this.CountriesCmBox.SelectedIndexChanged += new System.EventHandler(this.CountriesCmBox_SelectedIndexChanged);
+            // 
+            // CountriesFlgPicBox
+            // 
+            this.CountriesFlgPicBox.Location = new System.Drawing.Point(286, 239);
+            this.CountriesFlgPicBox.Name = "CountriesFlgPicBox";
+            this.CountriesFlgPicBox.Size = new System.Drawing.Size(34, 31);
+            this.CountriesFlgPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CountriesFlgPicBox.TabIndex = 5;
+            this.CountriesFlgPicBox.TabStop = false;
+            // 
+            // ConnectBtn
+            // 
+            this.ConnectBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ConnectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConnectBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.ConnectBtn.Location = new System.Drawing.Point(12, 278);
+            this.ConnectBtn.Name = "ConnectBtn";
+            this.ConnectBtn.Size = new System.Drawing.Size(155, 43);
+            this.ConnectBtn.TabIndex = 6;
+            this.ConnectBtn.Text = "Connect";
+            this.ConnectBtn.UseVisualStyleBackColor = true;
+            this.ConnectBtn.Click += new System.EventHandler(this.ConnectBtn_Click);
+            // 
+            // DisconnectBtn
+            // 
+            this.DisconnectBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DisconnectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisconnectBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisconnectBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.DisconnectBtn.Location = new System.Drawing.Point(170, 278);
+            this.DisconnectBtn.Name = "DisconnectBtn";
+            this.DisconnectBtn.Size = new System.Drawing.Size(150, 43);
+            this.DisconnectBtn.TabIndex = 7;
+            this.DisconnectBtn.Text = "Disconnect";
+            this.DisconnectBtn.UseVisualStyleBackColor = true;
+            this.DisconnectBtn.Click += new System.EventHandler(this.DisconnectBtn_Click);
+            // 
+            // statusPicbox
+            // 
+            this.statusPicbox.Image = global::Simple_VPN.Properties.Resources.Disconnectpic;
+            this.statusPicbox.Location = new System.Drawing.Point(77, 46);
+            this.statusPicbox.Name = "statusPicbox";
+            this.statusPicbox.Size = new System.Drawing.Size(181, 181);
+            this.statusPicbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.statusPicbox.TabIndex = 8;
+            this.statusPicbox.TabStop = false;
+            // 
+            // usermode_Lbl
+            // 
+            this.usermode_Lbl.AutoSize = true;
+            this.usermode_Lbl.BackColor = System.Drawing.Color.Transparent;
+            this.usermode_Lbl.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usermode_Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.usermode_Lbl.Location = new System.Drawing.Point(137, 15);
+            this.usermode_Lbl.Name = "usermode_Lbl";
+            this.usermode_Lbl.Size = new System.Drawing.Size(43, 14);
+            this.usermode_Lbl.TabIndex = 11;
+            this.usermode_Lbl.Text = "(Latest)";
+            // 
+            // NotifyIcon
+            // 
+            this.NotifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.NotifyIcon.BalloonTipText = "Running in background";
+            this.NotifyIcon.BalloonTipTitle = "SimpleVPN";
+            this.NotifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon.Icon")));
+            this.NotifyIcon.Text = "SimpleVPN";
+            this.NotifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon_MouseDoubleClick);
+            // 
+            // openApplicationToolStripMenuItem
+            // 
+            this.openApplicationToolStripMenuItem.Name = "openApplicationToolStripMenuItem";
+            this.openApplicationToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.openApplicationToolStripMenuItem.Text = "Open Application";
+            this.openApplicationToolStripMenuItem.Click += new System.EventHandler(this.openApplicationToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // CMenu
+            // 
+            this.CMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openApplicationToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.CMenu.Name = "CMenu";
+            this.CMenu.Size = new System.Drawing.Size(168, 48);
+            // 
+            // InfoBtn
+            // 
+            this.InfoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InfoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InfoBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.InfoBtn.Location = new System.Drawing.Point(248, 3);
+            this.InfoBtn.Name = "InfoBtn";
+            this.InfoBtn.Size = new System.Drawing.Size(25, 26);
+            this.InfoBtn.TabIndex = 12;
+            this.InfoBtn.Text = "?";
+            this.InfoBtn.UseVisualStyleBackColor = true;
+            this.InfoBtn.Click += new System.EventHandler(this.InfoBtn_Click);
+            // 
+            // Dashboard
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(33)))));
+            this.ClientSize = new System.Drawing.Size(332, 335);
+            this.ControlBox = false;
+            this.Controls.Add(this.InfoBtn);
+            this.Controls.Add(this.usermode_Lbl);
+            this.Controls.Add(this.statusPicbox);
+            this.Controls.Add(this.DisconnectBtn);
+            this.Controls.Add(this.ConnectBtn);
+            this.Controls.Add(this.CountriesFlgPicBox);
+            this.Controls.Add(this.CountriesCmBox);
+            this.Controls.Add(this.NameLbl);
+            this.Controls.Add(this.SeprLbl);
+            this.Controls.Add(this.MiniBtn);
+            this.Controls.Add(this.ExitBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.CountriesFlgPicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusPicbox)).EndInit();
+            this.CMenu.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.Button MiniBtn;
+        private System.Windows.Forms.Label SeprLbl;
+        private System.Windows.Forms.Label NameLbl;
+        private System.Windows.Forms.ComboBox CountriesCmBox;
+        private System.Windows.Forms.PictureBox CountriesFlgPicBox;
+        private System.Windows.Forms.Button ConnectBtn;
+        private System.Windows.Forms.Button DisconnectBtn;
+        private System.Windows.Forms.PictureBox statusPicbox;
+        private System.Windows.Forms.Label usermode_Lbl;
+        private System.Windows.Forms.NotifyIcon NotifyIcon;
+        private System.Windows.Forms.ToolStripMenuItem openApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip CMenu;
+        private System.Windows.Forms.Button InfoBtn;
+    }
+}
+
