@@ -1,6 +1,6 @@
 # SimpleVPN ( Re-Coded )
 ```bash
-SimpleVPN is a PPTP Protocol VPN Client which has been written in C# using DOTras.
+SimpleVPN is a PPTP Protocol VPN Client written in C# using DOTras.
 ```
 # Software Pictures
 | Not Connected | Connected |
