@@ -45,9 +45,14 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.InfoBtn = new System.Windows.Forms.Button();
+            this.PPTP_rBtn = new System.Windows.Forms.RadioButton();
+            this.ProtocolGrpBox = new System.Windows.Forms.GroupBox();
+            this.RecommendedLbl = new System.Windows.Forms.Label();
+            this.L2TP_rBtn = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.CountriesFlgPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusPicbox)).BeginInit();
             this.CMenu.SuspendLayout();
+            this.ProtocolGrpBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExitBtn
@@ -89,30 +94,36 @@
             // NameLbl
             // 
             this.NameLbl.AutoSize = true;
-            this.NameLbl.Font = new System.Drawing.Font("Orbitron", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameLbl.Font = new System.Drawing.Font("Microsoft Tai Le", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
-            this.NameLbl.Location = new System.Drawing.Point(1, 8);
+            this.NameLbl.Location = new System.Drawing.Point(-1, 7);
             this.NameLbl.Name = "NameLbl";
-            this.NameLbl.Size = new System.Drawing.Size(142, 18);
+            this.NameLbl.Size = new System.Drawing.Size(145, 22);
             this.NameLbl.TabIndex = 3;
-            this.NameLbl.Text = "Simple VPN 1.1.0";
+            this.NameLbl.Text = "SimpleVPN 1.3.0";
             // 
             // CountriesCmBox
             // 
             this.CountriesCmBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(33)))));
             this.CountriesCmBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CountriesCmBox.DropDownHeight = 95;
             this.CountriesCmBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CountriesCmBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CountriesCmBox.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CountriesCmBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
             this.CountriesCmBox.FormattingEnabled = true;
+            this.CountriesCmBox.IntegralHeight = false;
+            this.CountriesCmBox.ItemHeight = 23;
             this.CountriesCmBox.Items.AddRange(new object[] {
             "Select",
-            "Netherlands",
+            "France",
+            "Canada",
             "Germany",
             "Argentina",
-            "United States"});
-            this.CountriesCmBox.Location = new System.Drawing.Point(12, 239);
+            "Netherlands",
+            "United States",
+            "Russian Federation"});
+            this.CountriesCmBox.Location = new System.Drawing.Point(12, 285);
             this.CountriesCmBox.Name = "CountriesCmBox";
             this.CountriesCmBox.Size = new System.Drawing.Size(269, 31);
             this.CountriesCmBox.TabIndex = 4;
@@ -120,7 +131,7 @@
             // 
             // CountriesFlgPicBox
             // 
-            this.CountriesFlgPicBox.Location = new System.Drawing.Point(286, 239);
+            this.CountriesFlgPicBox.Location = new System.Drawing.Point(286, 285);
             this.CountriesFlgPicBox.Name = "CountriesFlgPicBox";
             this.CountriesFlgPicBox.Size = new System.Drawing.Size(34, 31);
             this.CountriesFlgPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,7 +144,7 @@
             this.ConnectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ConnectBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConnectBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
-            this.ConnectBtn.Location = new System.Drawing.Point(12, 278);
+            this.ConnectBtn.Location = new System.Drawing.Point(12, 324);
             this.ConnectBtn.Name = "ConnectBtn";
             this.ConnectBtn.Size = new System.Drawing.Size(155, 43);
             this.ConnectBtn.TabIndex = 6;
@@ -147,7 +158,7 @@
             this.DisconnectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DisconnectBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisconnectBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
-            this.DisconnectBtn.Location = new System.Drawing.Point(170, 278);
+            this.DisconnectBtn.Location = new System.Drawing.Point(170, 324);
             this.DisconnectBtn.Name = "DisconnectBtn";
             this.DisconnectBtn.Size = new System.Drawing.Size(150, 43);
             this.DisconnectBtn.TabIndex = 7;
@@ -171,7 +182,7 @@
             this.usermode_Lbl.BackColor = System.Drawing.Color.Transparent;
             this.usermode_Lbl.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usermode_Lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
-            this.usermode_Lbl.Location = new System.Drawing.Point(137, 15);
+            this.usermode_Lbl.Location = new System.Drawing.Point(138, 14);
             this.usermode_Lbl.Name = "usermode_Lbl";
             this.usermode_Lbl.Size = new System.Drawing.Size(43, 14);
             this.usermode_Lbl.TabIndex = 11;
@@ -222,13 +233,66 @@
             this.InfoBtn.UseVisualStyleBackColor = true;
             this.InfoBtn.Click += new System.EventHandler(this.InfoBtn_Click);
             // 
+            // PPTP_rBtn
+            // 
+            this.PPTP_rBtn.AutoSize = true;
+            this.PPTP_rBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PPTP_rBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PPTP_rBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.PPTP_rBtn.Location = new System.Drawing.Point(41, 13);
+            this.PPTP_rBtn.Name = "PPTP_rBtn";
+            this.PPTP_rBtn.Size = new System.Drawing.Size(71, 27);
+            this.PPTP_rBtn.TabIndex = 13;
+            this.PPTP_rBtn.Text = "PPTP";
+            this.PPTP_rBtn.UseVisualStyleBackColor = true;
+            this.PPTP_rBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PPTP_rBtn_MouseClick);
+            // 
+            // ProtocolGrpBox
+            // 
+            this.ProtocolGrpBox.Controls.Add(this.RecommendedLbl);
+            this.ProtocolGrpBox.Controls.Add(this.L2TP_rBtn);
+            this.ProtocolGrpBox.Controls.Add(this.PPTP_rBtn);
+            this.ProtocolGrpBox.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProtocolGrpBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.ProtocolGrpBox.Location = new System.Drawing.Point(12, 233);
+            this.ProtocolGrpBox.Name = "ProtocolGrpBox";
+            this.ProtocolGrpBox.Size = new System.Drawing.Size(308, 46);
+            this.ProtocolGrpBox.TabIndex = 14;
+            this.ProtocolGrpBox.TabStop = false;
+            this.ProtocolGrpBox.Text = "Protocol";
+            // 
+            // RecommendedLbl
+            // 
+            this.RecommendedLbl.AutoSize = true;
+            this.RecommendedLbl.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecommendedLbl.Location = new System.Drawing.Point(104, 22);
+            this.RecommendedLbl.Name = "RecommendedLbl";
+            this.RecommendedLbl.Size = new System.Drawing.Size(86, 14);
+            this.RecommendedLbl.TabIndex = 15;
+            this.RecommendedLbl.Text = "(recommended)";
+            // 
+            // L2TP_rBtn
+            // 
+            this.L2TP_rBtn.AutoSize = true;
+            this.L2TP_rBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.L2TP_rBtn.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.L2TP_rBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
+            this.L2TP_rBtn.Location = new System.Drawing.Point(206, 13);
+            this.L2TP_rBtn.Name = "L2TP_rBtn";
+            this.L2TP_rBtn.Size = new System.Drawing.Size(68, 27);
+            this.L2TP_rBtn.TabIndex = 14;
+            this.L2TP_rBtn.Text = "L2TP";
+            this.L2TP_rBtn.UseVisualStyleBackColor = true;
+            this.L2TP_rBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.L2TP_rBtn_MouseClick);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(332, 335);
+            this.ClientSize = new System.Drawing.Size(332, 380);
             this.ControlBox = false;
+            this.Controls.Add(this.ProtocolGrpBox);
             this.Controls.Add(this.InfoBtn);
             this.Controls.Add(this.usermode_Lbl);
             this.Controls.Add(this.statusPicbox);
@@ -250,6 +314,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.CountriesFlgPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusPicbox)).EndInit();
             this.CMenu.ResumeLayout(false);
+            this.ProtocolGrpBox.ResumeLayout(false);
+            this.ProtocolGrpBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,6 +338,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip CMenu;
         private System.Windows.Forms.Button InfoBtn;
+        private System.Windows.Forms.RadioButton PPTP_rBtn;
+        private System.Windows.Forms.GroupBox ProtocolGrpBox;
+        private System.Windows.Forms.RadioButton L2TP_rBtn;
+        private System.Windows.Forms.Label RecommendedLbl;
     }
 }
 

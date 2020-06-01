@@ -93,6 +93,16 @@ namespace Simple_VPN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CanadaFlg {
+            get {
+                object obj = ResourceManager.GetObject("CanadaFlg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Connectpic {
             get {
                 object obj = ResourceManager.GetObject("Connectpic", resourceCulture);
@@ -106,6 +116,16 @@ namespace Simple_VPN.Properties {
         internal static System.Drawing.Bitmap Disconnectpic {
             get {
                 object obj = ResourceManager.GetObject("Disconnectpic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FranceFlg {
+            get {
+                object obj = ResourceManager.GetObject("FranceFlg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +166,16 @@ namespace Simple_VPN.Properties {
         internal static System.Drawing.Bitmap question__1_ {
             get {
                 object obj = ResourceManager.GetObject("question__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RussiaFlg {
+            get {
+                object obj = ResourceManager.GetObject("RussiaFlg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

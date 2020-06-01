@@ -1,93 +1,103 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using DotRas;
 
 namespace Simple_VPN.Classes
 {
-    class PPTPProtocol
+    class VPN
     {
-        string _VpnName;
-        string _ServerIP;
-        string _UserName;
-        string _PassWord;
-
-        public PPTPProtocol(string vpnname, string serverip, string username, string password)
+        private string serverIP;
+        private string adapterName;
+        private string userName;
+        private string passWord;
+        private string vpnProtocol;
+        private string preSharedKey;
+        public VPN(string serverIP, string adapterName, string userName, string passWord, string vpnProtocol, string preSharedKey)
         {
-            _VpnName = vpnname;
-            _ServerIP = serverip;
-            _UserName = username;
-            _PassWord = password;
+            this.serverIP = serverIP;
+            this.adapterName = adapterName;
+            this.userName = userName;
+            this.passWord = passWord;
+            this.vpnProtocol = vpnProtocol;
+            this.preSharedKey = preSharedKey;
         }
 
-        RasPhoneBook RPB = new RasPhoneBook();
-        RasDialer RD = new RasDialer();
-        private RasHandle Handle = null;
-        RasEntry Entry;
-        public void CreateConnection()
-        {
-            try
-            {
-                RPB.Open();
-                Entry = RasEntry.CreateVpnEntry(_VpnName, _ServerIP, RasVpnStrategy.PptpOnly,
-                    RasDevice.GetDeviceByName("(PPTP)", RasDeviceType.Vpn, false));
-                RPB.Entries.Add(Entry);
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
+        private RasDialer dialer;
+        private RasHandle handle;
         public void Connect()
         {
-            try
+            dialer = new RasDialer();
+            using (RasPhoneBook PhoneBook = new RasPhoneBook())
             {
-                RD.EntryName = _VpnName;
-                RD.PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers);
-            }
-            catch (Exception ex)
-            {
+                PhoneBook.Open(RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers));
+                RasEntry Entry;
 
-            }
+                if (PhoneBook.Entries.Contains(adapterName))
+                {
+                    PhoneBook.Entries.Remove(adapterName);
+                }
+                if (vpnProtocol.Contains("PPTP"))
+                {
+                    Entry = RasEntry.CreateVpnEntry(adapterName, serverIP, RasVpnStrategy.PptpOnly, RasDevice.GetDeviceByName("(PPTP)", RasDeviceType.Vpn));
+                }
+                else
+                {
+                    Entry = RasEntry.CreateVpnEntry(adapterName, serverIP, RasVpnStrategy.L2tpOnly, RasDevice.GetDeviceByName("(L2TP)", RasDeviceType.Vpn));
+                }
 
-            try
-            {
-                RD.Credentials = new NetworkCredential(_UserName, _PassWord);
-                Handle = RD.DialAsync();
-            }
-            catch (Exception ex)
-            {
+                PhoneBook.Entries.Add(Entry);
+                Entry.Options.PreviewDomain = false;
+                Entry.Options.ShowDialingProgress = false;
+                Entry.Options.PromoteAlternates = false;
+                Entry.Options.DoNotNegotiateMultilink = false;
 
+                if (vpnProtocol.Equals("L2TP"))
+                {
+                    Entry.Options.UsePreSharedKey = true;
+                    Entry.UpdateCredentials(RasPreSharedKey.Client, preSharedKey);
+                    Entry.Update();
+                }
+
+                dialer.EntryName = adapterName;
+                dialer.PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers);
+                dialer.Credentials = new NetworkCredential(userName, passWord);
             }
+            handle = dialer.DialAsync();
         }
 
         public void Disconnect()
         {
-            if (RD.IsBusy)
+            if (dialer.IsBusy)
             {
-                RD.DialAsyncCancel();
+                dialer.DialAsyncCancel();
             }
             else
             {
-                RasConnection Connection = RasConnection.GetActiveConnectionByHandle(Handle);
-                if (Connection != null)
+                if (handle != null)
                 {
-                    Connection.HangUp();
-                    RemoveAdaptor();
+                    RasConnection Connection = RasConnection.GetActiveConnectionByHandle(handle);
+                    if (Connection != null)
+                    {
+                        Connection.HangUp();
+                    }
+                }
+            }
+
+            using (RasPhoneBook PhoneBook = new RasPhoneBook())
+            {
+                PhoneBook.Open(RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers));
+
+                if (PhoneBook.Entries.Contains(adapterName))
+                {
+                    PhoneBook.Entries.Remove(adapterName);
                 }
             }
         }
 
-        public void RemoveAdaptor()
+        public void Dispose()
         {
-            try
-            {
-                RPB.Entries.Remove(Entry.Name);
-            }
-            catch (Exception ex)
-            {
-
-            }
+            adapterName = null;
+            dialer = null;
+            handle = null;
         }
     }
 }

@@ -11,9 +11,14 @@ namespace Simple_VPN
             InitializeComponent();
         }
 
+        DateTime endSub = new DateTime(2020, 12, 1);
         private void Information_Load(object sender, EventArgs e)
         {
-            //
+            TimeSpan subResult = endSub.Subtract(DateTime.Today);
+            if (subResult.Days < 0)
+                SubLblDyn.Text = "None";
+            else
+                SubLblDyn.Text = $"{subResult.TotalDays} Days Left";
         }
 
         private void TelegramPicBox_Click(object sender, EventArgs e)
@@ -28,14 +33,15 @@ namespace Simple_VPN
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
+            GC.Collect();
             this.Close();
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
+        [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
         private void Information_MouseDown(object sender, MouseEventArgs e)
         {

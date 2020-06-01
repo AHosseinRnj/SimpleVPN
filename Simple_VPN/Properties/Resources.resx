@@ -151,4 +151,13 @@
   <data name="Telegram_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Telegram_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CanadaFlg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CanadaFlg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FranceFlg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FranceFlg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RussiaFlg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RussiaFlg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
