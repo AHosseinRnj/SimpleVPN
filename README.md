@@ -10,5 +10,9 @@
 | --- | ---  |
 |![](https://image.prntscr.com/image/UoXWuGj8QvSuuoTFwZAobA.png) | ![](https://image.prntscr.com/image/iQ7yNdtORiGzL9Cr6ENxQg.png)  |
 
+## Download
+You can download binary from releases:
+https://github.com/AHosseinRnj/SimpleVPN/releases
+
 # Licence
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
