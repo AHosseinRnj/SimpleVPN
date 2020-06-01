@@ -12,6 +12,7 @@
 
 ## Download
 You can download binary from releases:
+
 [https://github.com/AHosseinRnj/SimpleVPN/releases/](https://github.com/AHosseinRnj/SimpleVPN/releases/)
 
 # Licence
