@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="195" width="175" src="https://image.prntscr.com/image/tJMhonbpRZKiok78PX29xw.png"/>
+  <img height="150" width="160" src="https://image.prntscr.com/image/tJMhonbpRZKiok78PX29xw.png"/>
 </p>
 
 # SimpleVPN 1.3.0 
