@@ -85,7 +85,7 @@
             this.LatestLbl.Name = "LatestLbl";
             this.LatestLbl.Size = new System.Drawing.Size(53, 21);
             this.LatestLbl.TabIndex = 6;
-            this.LatestLbl.Text = "1.3.0 :";
+            this.LatestLbl.Text = "1.3.1 :";
             // 
             // LatestDynLbl
             // 
@@ -94,9 +94,10 @@
             this.LatestDynLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(170)))), ((int)(((byte)(80)))));
             this.LatestDynLbl.Location = new System.Drawing.Point(25, 64);
             this.LatestDynLbl.Name = "LatestDynLbl";
-            this.LatestDynLbl.Size = new System.Drawing.Size(277, 96);
+            this.LatestDynLbl.Size = new System.Drawing.Size(268, 48);
             this.LatestDynLbl.TabIndex = 7;
-            this.LatestDynLbl.Text = resources.GetString("LatestDynLbl.Text");
+            this.LatestDynLbl.Text = "[+] Fixed Memory Leak\r\n[+] Minor Improvement\r\n[+] Improved Connectivity in Some C" +
+    "ountries";
             // 
             // label1
             // 

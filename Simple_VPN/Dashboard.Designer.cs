@@ -100,7 +100,7 @@
             this.NameLbl.Name = "NameLbl";
             this.NameLbl.Size = new System.Drawing.Size(145, 22);
             this.NameLbl.TabIndex = 3;
-            this.NameLbl.Text = "SimpleVPN 1.3.0";
+            this.NameLbl.Text = "SimpleVPN 1.3.1";
             // 
             // CountriesCmBox
             // 

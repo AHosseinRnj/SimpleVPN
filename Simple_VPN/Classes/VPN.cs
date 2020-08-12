@@ -11,13 +11,48 @@ namespace Simple_VPN.Classes
         private string passWord;
         private string vpnProtocol;
         private string preSharedKey;
-        public VPN(string serverIP, string adapterName, string userName, string passWord, string vpnProtocol, string preSharedKey)
+        public VPN(string serverIP = "", string adapterName = "", string userName = "", string passWord = "", string vpnProtocol = "", string preSharedKey = "")
+        {
+            setParameters(serverIP, adapterName, userName, passWord, vpnProtocol, preSharedKey);
+        }
+
+        public void setParameters(string serverIP, string adapterName, string userName, string passWord, string vpnProtocol, string preSharedKey)
+        {
+            setServerIP(serverIP);
+            setAdapterName(adapterName);
+            setUserName(userName);
+            setPassWord(passWord);
+            setVPNProtocol(vpnProtocol);
+            setPreSharedKey(preSharedKey);
+        }
+
+        public void setServerIP(string serverIP)
         {
             this.serverIP = serverIP;
+        }
+
+        public void setAdapterName(string adapterName)
+        {
             this.adapterName = adapterName;
+        }
+
+        public void setUserName(string userName)
+        {
             this.userName = userName;
+        }
+
+        public void setPassWord(string passWord)
+        {
             this.passWord = passWord;
+        }
+
+        public void setVPNProtocol(string vpnProtocol)
+        {
             this.vpnProtocol = vpnProtocol;
+        }
+
+        public void setPreSharedKey(string preSharedKey)
+        {
             this.preSharedKey = preSharedKey;
         }
 
@@ -35,7 +70,7 @@ namespace Simple_VPN.Classes
                 {
                     PhoneBook.Entries.Remove(adapterName);
                 }
-                if (vpnProtocol.Contains("PPTP"))
+                if (vpnProtocol.Equals("PPTP"))
                 {
                     Entry = RasEntry.CreateVpnEntry(adapterName, serverIP, RasVpnStrategy.PptpOnly, RasDevice.GetDeviceByName("(PPTP)", RasDeviceType.Vpn));
                 }
@@ -95,7 +130,12 @@ namespace Simple_VPN.Classes
 
         public void Dispose()
         {
+            serverIP = null;
             adapterName = null;
+            userName = null;
+            passWord = null;
+            vpnProtocol = null;
+            preSharedKey = null;
             dialer = null;
             handle = null;
         }

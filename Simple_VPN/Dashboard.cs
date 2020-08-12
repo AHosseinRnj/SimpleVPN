@@ -14,8 +14,8 @@ namespace Simple_VPN
 
         DashboardDesignClass MainUI;
         ServerSelector countryLocation;
-        Information InfoDialog;
-        VPN VPN;
+        Information InfoDialog = new Information();
+        VPN VPN = new VPN();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -23,7 +23,6 @@ namespace Simple_VPN
             Connection_Authentication();
             countryLocation = new ServerSelector();
             MainUI = new DashboardDesignClass();
-            InfoDialog = new Information();
             CountriesCmBox.SelectedIndex = 0;
             MainUI.DisconnectBtn_Enabled_False();
         }
@@ -57,17 +56,17 @@ namespace Simple_VPN
         {
             if (CountriesCmBox.SelectedItem.Equals("Select"))
             {
-                MessageBox.Show("Please Select a Location", "Error at 0x60", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please Select a Location", "Error at 0x59", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 if (PPTP_rBtn.Checked == false && L2TP_rBtn.Checked == false)
                 {
-                    MessageBox.Show("Please Select a Protocol", "Error at 0x66", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please Select a Protocol", "Error at 0x65", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    sendCredentials();
+                    VPN.setParameters(serverIP, adapterName, userName, passWord, selectedProtocol, preSharedKey);
                     try
                     {
                         VPN.Connect();
@@ -89,8 +88,6 @@ namespace Simple_VPN
             try
             {
                 VPN.Disconnect();
-                VPN.Dispose();
-                VPN = null;
             }
             finally
             {
@@ -168,18 +165,18 @@ namespace Simple_VPN
         {
             if (ConnectBtn.Enabled == false)
             {
-                MessageBox.Show("Please Disconnect First", "Error at 0x171", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Please Disconnect First", "Error at 0x168", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
+                VPN.Dispose();
+                VPN = null;
+                MainUI = null;
+                countryLocation = null;
+                InfoDialog = null;
                 GC.Collect();
                 Application.Exit();
             }
-        }
-
-        public void sendCredentials()
-        {
-            VPN = new VPN(serverIP, adapterName, userName, passWord, selectedProtocol, preSharedKey);
         }
 
         public void Connection_Authentication()
