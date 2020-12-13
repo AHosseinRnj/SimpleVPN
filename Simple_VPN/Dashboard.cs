@@ -28,7 +28,7 @@ namespace Simple_VPN
         }
 
         /* 
-         * The Below Username & Password Valid Till : Tuesday, 1 December 2020
+         * The Below Username & Password Valid Till : Monday, 19 April 2021
          *
          *       !!!  Don't Modify ServerIP & selectedProtocol !!!
          * adapterName : You can choose whatever you like .
@@ -42,8 +42,8 @@ namespace Simple_VPN
 
         private string serverIP;
         private string adapterName = "SimpleVPN";
-        private string userName = "ta.mikawil.ki.n.son.t.m.p@gmail.com";
-        private string passWord = "Simple.V.P.N_U01";
+        private string userName = "na.tasha.m.end.e.ztm.p@gmail.com";
+        private string passWord = "Simple.V.P.N_U02";
         private string preSharedKey = "seed4me";
         private string selectedProtocol;
 
@@ -179,7 +179,7 @@ namespace Simple_VPN
             }
         }
 
-        public void Connection_Authentication()
+        private void Connection_Authentication()
         {
             while (true)
             {
@@ -207,7 +207,7 @@ namespace Simple_VPN
             }
         }
 
-        public void Administrator_Authentication()
+        private void Administrator_Authentication()
         {
             if (Status.IsAdministrator() == false)
             {

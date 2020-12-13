@@ -11,7 +11,7 @@ namespace Simple_VPN
             InitializeComponent();
         }
 
-        DateTime endSub = new DateTime(2020, 12, 1);
+        DateTime endSub = new DateTime(2021, 4, 19);
         private void Information_Load(object sender, EventArgs e)
         {
             TimeSpan subResult = endSub.Subtract(DateTime.Today);
