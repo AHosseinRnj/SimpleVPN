@@ -1,4 +1,6 @@
-﻿namespace Simple_VPN
+﻿using System.Drawing;
+
+namespace Simple_VPN
 {
     partial class Dashboard
     {
@@ -100,7 +102,7 @@
             this.NameLbl.Name = "NameLbl";
             this.NameLbl.Size = new System.Drawing.Size(145, 22);
             this.NameLbl.TabIndex = 3;
-            this.NameLbl.Text = "SimpleVPN 1.3.2";
+            this.NameLbl.Text = "SimpleVPN 1.3.3";
             // 
             // CountriesCmBox
             // 
@@ -342,6 +344,103 @@
         private System.Windows.Forms.GroupBox ProtocolGrpBox;
         private System.Windows.Forms.RadioButton L2TP_rBtn;
         private System.Windows.Forms.Label RecommendedLbl;
+
+
+        public void DisconnectBtn_Enabled_False()
+        {
+            DisconnectBtn.Enabled = false;
+            DisconnectBtn.ForeColor = Color.FromArgb(93, 97, 105);
+            DisconnectBtn.BackColor = Color.FromArgb(93, 97, 105);
+        }
+
+        public void DisconnectBtn_Enabled_True()
+        {
+            DisconnectBtn.Enabled = true;
+            DisconnectBtn.ForeColor = Color.FromArgb(244, 170, 80);
+            DisconnectBtn.BackColor = Color.Transparent;
+        }
+
+        public void ConnectBtn_Enabled_False()
+        {
+            ConnectBtn.Enabled = false;
+            ConnectBtn.ForeColor = Color.FromArgb(93, 97, 105);
+            ConnectBtn.BackColor = Color.FromArgb(93, 97, 105);
+        }
+
+        public void ConnectBtn_Enabled_True()
+        {
+            ConnectBtn.Enabled = true;
+            ConnectBtn.ForeColor = Color.FromArgb(244, 170, 80);
+            ConnectBtn.BackColor = Color.Transparent;
+        }
+
+        public void ExitBtn_Enabled_False()
+        {
+            ExitBtn.Enabled = false;
+            ExitBtn.ForeColor = Color.FromArgb(93, 97, 105);
+            ExitBtn.BackColor = Color.FromArgb(93, 97, 105);
+        }
+
+        public void ExitBtn_Enabled_True()
+        {
+            ExitBtn.Enabled = true;
+            ExitBtn.ForeColor = Color.FromArgb(244, 170, 80);
+            ExitBtn.BackColor = Color.Transparent;
+        }
+
+        public void CountriesCmBox_Enabled_False()
+        {
+            CountriesCmBox.Enabled = false;
+            CountriesCmBox.ForeColor = Color.FromArgb(93, 97, 105);
+            CountriesCmBox.BackColor = Color.FromArgb(93, 97, 105);
+        }
+
+        public void CountriesCmBox_Enabled_True()
+        {
+            CountriesCmBox.Enabled = true;
+            CountriesCmBox.ForeColor = Color.FromArgb(244, 170, 80);
+            CountriesCmBox.BackColor = Color.FromArgb(22, 27, 33);
+        }
+
+        public string ServerIp(string locationName)
+        {
+            string IP = null;
+            switch (locationName)
+            {
+                case "France":
+                    IP = "fr.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.FranceFlg;
+                    break;
+                case "Canada":
+                    IP = "ca.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.CanadaFlg;
+                    break;
+                case "Germany":
+                    IP = "de.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.GermanyFlg;
+                    break;
+                case "Argentina":
+                    IP = "ar.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.ArgentinaFlg;
+                    break;
+                case "Netherlands":
+                    IP = "nl.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.NetherlandsFlg;
+                    break;
+                case "United States":
+                    IP = "us.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.UsaFlg;
+                    break;
+                case "Russian Federation":
+                    IP = "ru.s4m.xyz";
+                    CountriesFlgPicBox.Image = Properties.Resources.RussiaFlg;
+                    break;
+                default:
+                    IP = string.Empty;
+                    CountriesFlgPicBox.Image = Properties.Resources.question__1_;
+                    break;
+            }
+            return IP;
+        }
     }
 }
-

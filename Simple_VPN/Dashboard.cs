@@ -12,19 +12,13 @@ namespace Simple_VPN
             InitializeComponent();
         }
 
-        DashboardDesignClass MainUI;
-        ServerSelector countryLocation;
-        Information InfoDialog = new Information();
         VPN VPN = new VPN();
-
         private void Form1_Load(object sender, EventArgs e)
         {
             Administrator_Authentication();
             Connection_Authentication();
-            countryLocation = new ServerSelector();
-            MainUI = new DashboardDesignClass();
             CountriesCmBox.SelectedIndex = 0;
-            MainUI.DisconnectBtn_Enabled_False();
+            DisconnectBtn_Enabled_False();
         }
 
         /* 
@@ -40,29 +34,29 @@ namespace Simple_VPN
          * 
          */
 
-        private string serverIP;
+        private string serverIP = null;
         private string adapterName = "SimpleVPN";
         private string userName = "na.tasha.m.end.e.ztm.p@gmail.com";
         private string passWord = "Simple.V.P.N_U02";
         private string preSharedKey = "seed4me";
-        private string selectedProtocol;
+        private string selectedProtocol = null;
 
         private void CountriesCmBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            serverIP = countryLocation.ServerIp(CountriesCmBox.SelectedItem.ToString());
+            serverIP = ServerIp(CountriesCmBox.SelectedItem.ToString());
         }
 
         private void ConnectBtn_Click(object sender, EventArgs e)
         {
-            if (CountriesCmBox.SelectedItem.Equals("Select"))
+            if (CountriesCmBox.SelectedIndex == 0)
             {
-                MessageBox.Show("Please Select a Location", "Error at 0x59", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please Select a Location", "Error at 0x53", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                if (PPTP_rBtn.Checked == false && L2TP_rBtn.Checked == false)
+                if (!PPTP_rBtn.Checked && !L2TP_rBtn.Checked)
                 {
-                    MessageBox.Show("Please Select a Protocol", "Error at 0x65", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please Select a Protocol", "Error at 0x59", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -73,9 +67,9 @@ namespace Simple_VPN
                     }
                     finally
                     {
-                        MainUI.ConnectBtn_Enabled_False();
-                        MainUI.DisconnectBtn_Enabled_True();
-                        MainUI.CountriesCmBox_Enabled_False();
+                        ConnectBtn_Enabled_False();
+                        DisconnectBtn_Enabled_True();
+                        CountriesCmBox_Enabled_False();
                         statusPicbox.Image = Properties.Resources.Connectpic;
                         GC.Collect();
                     }
@@ -91,9 +85,9 @@ namespace Simple_VPN
             }
             finally
             {
-                MainUI.ConnectBtn_Enabled_True();
-                MainUI.DisconnectBtn_Enabled_False();
-                MainUI.CountriesCmBox_Enabled_True();
+                ConnectBtn_Enabled_True();
+                DisconnectBtn_Enabled_False();
+                CountriesCmBox_Enabled_True();
                 statusPicbox.Image = Properties.Resources.Disconnectpic;
                 GC.Collect();
             }
@@ -101,7 +95,10 @@ namespace Simple_VPN
 
         private void InfoBtn_Click(object sender, EventArgs e)
         {
-            InfoDialog.ShowDialog();
+            using (Information InfoDialog = new Information())
+            {
+                InfoDialog.ShowDialog();
+            }
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)
@@ -146,6 +143,52 @@ namespace Simple_VPN
             selectedProtocol = "L2TP";
         }
 
+        public void ExitMethod()
+        {
+            if (!ConnectBtn.Enabled)
+            {
+                MessageBox.Show("Please Disconnect First", "Error at 0x150", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                VPN.Dispose();
+                VPN = null;
+                GC.Collect();
+                Application.Exit();
+            }
+        }
+
+        private void Connection_Authentication()
+        {
+            while (!Status.IsConnected())
+            {
+                DialogResult dResult = MessageBox.Show("You are not Connected to the internet", "No Connection",
+                                                        MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                if (dResult == DialogResult.Cancel)
+                {
+                    break;
+                }
+            }
+
+            if (!Status.IsConnected())
+            {
+                Application.Exit();
+            }
+        }
+
+        private void Administrator_Authentication()
+        {
+            if (!Status.IsAdministrator())
+            {
+                DialogResult dResult = MessageBox.Show("Please Re-start as an Administrator", "Permission Denied",
+                                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dResult == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+            }
+        }
+        
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImport("user32.dll")]
@@ -158,65 +201,6 @@ namespace Simple_VPN
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        public void ExitMethod()
-        {
-            if (ConnectBtn.Enabled == false)
-            {
-                MessageBox.Show("Please Disconnect First", "Error at 0x168", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-            else
-            {
-                VPN.Dispose();
-                VPN = null;
-                MainUI = null;
-                countryLocation = null;
-                InfoDialog = null;
-                GC.Collect();
-                Application.Exit();
-            }
-        }
-
-        private void Connection_Authentication()
-        {
-            while (true)
-            {
-                if (Status.IsConnected() == false)
-                {
-                    DialogResult Dr = MessageBox.Show("You are not Connected to the internet", "No Connection",
-                        MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (Dr == DialogResult.Retry)
-                    {
-                        if (Status.IsConnected() == true)
-                            break;
-                        else
-                            continue;
-                    }
-                    else
-                    {
-                        Application.Exit();
-                        break;
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-        }
-
-        private void Administrator_Authentication()
-        {
-            if (Status.IsAdministrator() == false)
-            {
-                DialogResult Dr = MessageBox.Show("Please Re-start as an Administrator", "Permission Denied",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (Dr == DialogResult.OK)
-                {
-                    Application.Exit();
-                }
             }
         }
     }

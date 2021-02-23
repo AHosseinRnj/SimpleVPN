@@ -16,8 +16,12 @@ namespace Simple_VPN.Classes
             try
             {
                 using (var client = new WebClient())
-                using (client.OpenRead("http://google.com/generate_204"))
-                    return true;
+                {
+                    using (client.OpenRead("http://google.com/generate_204"))
+                    {
+                        return true;
+                    }
+                }
             }
             catch
             {

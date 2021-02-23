@@ -51,9 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DashboardDesignClass.cs" />
     <Compile Include="Classes\VPN.cs" />
-    <Compile Include="Classes\ServerSelector.cs" />
     <Compile Include="Classes\Status.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
