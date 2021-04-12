@@ -85,7 +85,7 @@
             this.LatestLbl.Name = "LatestLbl";
             this.LatestLbl.Size = new System.Drawing.Size(53, 21);
             this.LatestLbl.TabIndex = 6;
-            this.LatestLbl.Text = "1.3.3 :";
+            this.LatestLbl.Text = "1.3.4 :";
             // 
             // LatestDynLbl
             // 
@@ -96,7 +96,7 @@
             this.LatestDynLbl.Name = "LatestDynLbl";
             this.LatestDynLbl.Size = new System.Drawing.Size(220, 16);
             this.LatestDynLbl.TabIndex = 7;
-            this.LatestDynLbl.Text = "[+] More Optimization\r\n[+] Reduced Memory usage\r\n[+] Minor Improvement";
+            this.LatestDynLbl.Text = "[+] Added subscription for 365 days";
             // 
             // label1
             // 

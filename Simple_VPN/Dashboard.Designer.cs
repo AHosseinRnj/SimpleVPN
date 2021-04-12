@@ -102,7 +102,7 @@ namespace Simple_VPN
             this.NameLbl.Name = "NameLbl";
             this.NameLbl.Size = new System.Drawing.Size(145, 22);
             this.NameLbl.TabIndex = 3;
-            this.NameLbl.Text = "SimpleVPN 1.3.3";
+            this.NameLbl.Text = "SimpleVPN 1.3.4";
             // 
             // CountriesCmBox
             // 
