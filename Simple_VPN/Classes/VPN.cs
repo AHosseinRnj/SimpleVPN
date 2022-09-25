@@ -3,80 +3,49 @@ using DotRas;
 
 namespace Simple_VPN.Classes
 {
-    class VPN
+    static class Vpn
     {
-        private string serverIP;
-        private string adapterName;
-        private string userName;
-        private string passWord;
-        private string vpnProtocol;
-        private string preSharedKey;
-        public VPN(string serverIP = "", string adapterName = "", string userName = "", string passWord = "", string vpnProtocol = "", string preSharedKey = "")
-        {
-            setParameters(serverIP, adapterName, userName, passWord, vpnProtocol, preSharedKey);
-        }
+        /* 
+        * The Below Username & Password Valid Till : Monday, 10 October 2022.
+        *       
+        * _adapterName : You can choose whatever you like.
+        * 
+        * _userName : Your username & _passWord : Your password.
+        * _preSharedKey : Your PreSharedKey if needed.
+        * 
+        * You can set/add your server addresses in Classes/Server.cs .
+        * 
+        */
 
-        public void setParameters(string serverIP, string adapterName, string userName, string passWord, string vpnProtocol, string preSharedKey)
-        {
-            setServerIP(serverIP);
-            setAdapterName(adapterName);
-            setUserName(userName);
-            setPassWord(passWord);
-            setVPNProtocol(vpnProtocol);
-            setPreSharedKey(preSharedKey);
-        }
+        public static string ServerIp = string.Empty;
+        public static string VpnProtocol = string.Empty;
 
-        public void setServerIP(string serverIP)
-        {
-            this.serverIP = serverIP;
-        }
+        private static string _adapterName = "SimpleVPN";
+        private static string _userName = "ja.ck.quel.i.n.e.ba.netmp@gmail.com";
+        private static string _passWord = "Simple.V.P.N_U03";
+        private static string _preSharedKey = "seed4me";
 
-        public void setAdapterName(string adapterName)
+        private static RasDialer _dialer;
+        private static RasHandle _handle;
+        public static void Connect()
         {
-            this.adapterName = adapterName;
-        }
-
-        public void setUserName(string userName)
-        {
-            this.userName = userName;
-        }
-
-        public void setPassWord(string passWord)
-        {
-            this.passWord = passWord;
-        }
-
-        public void setVPNProtocol(string vpnProtocol)
-        {
-            this.vpnProtocol = vpnProtocol;
-        }
-
-        public void setPreSharedKey(string preSharedKey)
-        {
-            this.preSharedKey = preSharedKey;
-        }
-
-        private RasDialer dialer;
-        private RasHandle handle;
-        public void Connect()
-        {
-            dialer = new RasDialer();
+            _dialer = new RasDialer();
             using (RasPhoneBook PhoneBook = new RasPhoneBook())
             {
                 PhoneBook.Open(RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers));
                 RasEntry Entry;
 
-                if (PhoneBook.Entries.Contains(adapterName))
+                if (PhoneBook.Entries.Contains(_adapterName))
                 {
-                    PhoneBook.Entries.Remove(adapterName);
+                    PhoneBook.Entries.Remove(_adapterName);
                 }
-                if (vpnProtocol.Equals("PPTP"))
+                if (_adapterName.Equals("PPTP"))
                 {
-                    Entry = RasEntry.CreateVpnEntry(adapterName, serverIP, RasVpnStrategy.PptpOnly, RasDevice.GetDeviceByName("(PPTP)", RasDeviceType.Vpn));
+                    Entry = RasEntry.CreateVpnEntry(_adapterName, ServerIp, RasVpnStrategy.PptpOnly, RasDevice.GetDeviceByName("(PPTP)", RasDeviceType.Vpn));
                 }
                 else
                 {
-                    Entry = RasEntry.CreateVpnEntry(adapterName, serverIP, RasVpnStrategy.L2tpOnly, RasDevice.GetDeviceByName("(L2TP)", RasDeviceType.Vpn));
+                    Entry = RasEntry.CreateVpnEntry(_adapterName, ServerIp, RasVpnStrategy.L2tpOnly, RasDevice.GetDeviceByName("(L2TP)", RasDeviceType.Vpn));
                 }
 
                 PhoneBook.Entries.Add(Entry);
@@ -85,31 +54,31 @@ namespace Simple_VPN.Classes
                 Entry.Options.PromoteAlternates = false;
                 Entry.Options.DoNotNegotiateMultilink = false;
 
-                if (vpnProtocol.Equals("L2TP"))
+                if (VpnProtocol.Equals("L2TP"))
                 {
                     Entry.Options.UsePreSharedKey = true;
-                    Entry.UpdateCredentials(RasPreSharedKey.Client, preSharedKey);
+                    Entry.UpdateCredentials(RasPreSharedKey.Client, _preSharedKey);
                     Entry.Update();
                 }
 
-                dialer.EntryName = adapterName;
-                dialer.PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers);
-                dialer.Credentials = new NetworkCredential(userName, passWord);
+                _dialer.EntryName = _adapterName;
+                _dialer.PhoneBookPath = RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers);
+                _dialer.Credentials = new NetworkCredential(_userName, _passWord);
             }
-            handle = dialer.DialAsync();
+            _handle = _dialer.DialAsync();
         }
 
-        public void Disconnect()
+        public static void Disconnect()
         {
-            if (dialer.IsBusy)
+            if (_dialer.IsBusy)
             {
-                dialer.DialAsyncCancel();
+                _dialer.DialAsyncCancel();
             }
             else
             {
-                if (handle != null)
+                if (_handle != null)
                 {
-                    RasConnection Connection = RasConnection.GetActiveConnectionByHandle(handle);
+                    RasConnection Connection = RasConnection.GetActiveConnectionByHandle(_handle);
                     if (Connection != null)
                     {
                         Connection.HangUp();
@@ -121,23 +90,11 @@ namespace Simple_VPN.Classes
             {
                 PhoneBook.Open(RasPhoneBook.GetPhoneBookPath(RasPhoneBookType.AllUsers));
 
-                if (PhoneBook.Entries.Contains(adapterName))
+                if (PhoneBook.Entries.Contains(_adapterName))
                 {
-                    PhoneBook.Entries.Remove(adapterName);
+                    PhoneBook.Entries.Remove(_adapterName);
                 }
             }
-        }
-
-        public void Dispose()
-        {
-            serverIP = null;
-            adapterName = null;
-            userName = null;
-            passWord = null;
-            vpnProtocol = null;
-            preSharedKey = null;
-            dialer = null;
-            handle = null;
         }
     }
 }

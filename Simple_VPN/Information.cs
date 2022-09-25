@@ -1,4 +1,5 @@
 ﻿using System;
+using Simple_VPN.Classes;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -11,14 +12,9 @@ namespace Simple_VPN
             InitializeComponent();
         }
 
-        DateTime endSub = new DateTime(2022, 4, 12);
         private void Information_Load(object sender, EventArgs e)
         {
-            TimeSpan subResult = endSub.Subtract(DateTime.Today);
-            if (subResult.Days < 0)
-                SubLblDyn.Text = "None";
-            else
-                SubLblDyn.Text = $"{subResult.TotalDays} Days Left";
+            SubLblDyn.Text = $"{Status.TotalSubDays()} Days Left";
         }
 
         private void TelegramPicBox_Click(object sender, EventArgs e)
@@ -33,7 +29,6 @@ namespace Simple_VPN
 
         private void ExitBtn_Click(object sender, EventArgs e)
         {
-            GC.Collect();
             this.Close();
         }
 

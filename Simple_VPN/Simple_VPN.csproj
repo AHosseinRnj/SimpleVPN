@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Server.cs" />
     <Compile Include="Classes\VPN.cs" />
     <Compile Include="Classes\Status.cs" />
     <Compile Include="Dashboard.cs">
