@@ -2,7 +2,7 @@
   <img height="150" width="160" src="https://image.prntscr.com/image/tJMhonbpRZKiok78PX29xw.png"/>
 </p>
 
-# SimpleVPN 1.3.4 
+# SimpleVPN 1.3.5 
 >SimpleVPN is a PPTP and L2TP Protocol VPN Client written in C# using DOTras.
 
 ### Software Pictures
